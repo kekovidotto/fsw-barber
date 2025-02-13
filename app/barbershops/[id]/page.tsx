@@ -10,9 +10,7 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 
 interface BarbershopPageProps {
-  params: {
-    id: string
-  }
+  params: { id: string }
 }
 
 const BarbershopPage = async ({ params }: BarbershopPageProps) => {
