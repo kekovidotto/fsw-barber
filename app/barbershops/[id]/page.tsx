@@ -10,12 +10,11 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 
 interface BarbershopPageProps {
-  params: Promise<{ id: string }> | { id: string }
+  params: { id: string }
 }
 
 const BarbershopPage = async ({ params }: BarbershopPageProps) => {
-  const resolvedParams = await Promise.resolve(params)
-  const id = resolvedParams.id
+  const id = params.id
   const barbershop = await db.barbershop.findUnique({
     where: {
       id: id,
