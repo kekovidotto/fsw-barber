@@ -9,14 +9,17 @@ import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 
-type BarbershopPageProps = {
-  params: { id: string }
+interface BarbershopPageProps {
+  params: {
+    id: string
+  }
 }
 
 const BarbershopPage = async ({ params }: BarbershopPageProps) => {
-  const id = params.id
   const barbershop = await db.barbershop.findUnique({
-    where: { id },
+    where: {
+      id: params.id,
+    },
     include: {
       services: true,
     },
